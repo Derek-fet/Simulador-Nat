@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulación NAT Mejorada</title>
+  
+  <style>
+    body { font-family: Arial, sans-serif; background: #eef3f8; padding: 20px; }
+    h2 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background: #2c3e50; color: white; }
+    .btn { padding: 10px 20px; background: #27ae60; color: white; border: none; cursor: pointer; margin-top: 20px; }
+    .btn:hover { background: #1e8449; }
+  </style>
+
+</head>
+<body>
+  <h2> Simulación de NAT (Network Address Translation)</h2>
+  <p>Este simulador muestra cómo varias <b>IP privadas</b> de una casa u oficina son traducidas por un <b>router NAT</b> a una sola <b>IP pública</b> con diferentes puertos.</p>
+
+  <button class="btn" onclick="simularNAT()">Ejecutar Nueva Simulación</button>
+
+  <table id="tabla">
+    <thead>
+      <tr>
+        <th>Dispositivo</th>
+        <th>IP Privada</th>
+        <th>Solicitud</th>
+        <th>IP Pública Asignada</th>
+        <th>Puerto</th>
+        <th>Respuesta</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    function simularNAT() {
+      // Dispositivos que pueden aparecer en casa u oficina
+      const dispositivosPosibles = [
+        { nombre: "Laptop Oficina", solicitud: "Conectar a Teams" },
+        { nombre: "PC Escritorio", solicitud: "Abrir Google" },
+        { nombre: "Smartphone", solicitud: "Entrar a WhatsApp Web" },
+        { nombre: "Tablet", solicitud: "Revisar correo Gmail" },
+        { nombre: "Impresora WiFi", solicitud: "Enviar reporte a servidor" },
+        { nombre: "Smart TV", solicitud: "Ver Netflix" },
+        { nombre: "Servidor Local", solicitud: "Subir archivos al Drive" }
+      ];
+
+      // Generar aleatoriamente entre 3 y 6 dispositivos
+      let cantidad = Math.floor(Math.random() * 4) + 3;
+      let seleccionados = dispositivosPosibles.sort(() => 0.5 - Math.random()).slice(0, cantidad);
+
+      // Asignar IPs privadas dinámicamente (192.168.1.x)
+      seleccionados = seleccionados.map((disp, i) => {
+        disp.ip = "192.168.1." + (10 + i);
+        return disp;
+      });
+
+      const ipPublica = "181.50.23." + Math.floor(Math.random() * 100 + 1); // Cambia la IP pública también
+      let puertoInicial = 5000;
+
+      const tbody = document.querySelector("#tabla tbody");
+      tbody.innerHTML = "";
+
+      seleccionados.forEach((disp, i) => {
+        let puerto = puertoInicial + (i + 1);
+        let respuesta = "Respuesta de Internet para " + disp.solicitud;
+
+        let fila = `
+          <tr>
+            <td>${disp.nombre}</td>
+            <td>${disp.ip}</td>
+            <td>${disp.solicitud}</td>
+            <td>${ipPublica}</td>
+            <td>${puerto}</td>
+            <td>${respuesta} → entregada a ${disp.nombre} (${disp.ip})</td>
+          </tr>
+        `;
+        tbody.innerHTML += fila;
+      });
+    }
+  </script>
+</body>
+</html>
