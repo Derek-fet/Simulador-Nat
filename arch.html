@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SFCQBTVA.Net | Simulación NAT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="top-row">
+        <div class="brand">
+          <svg class="brand-logo" width="240" height="56" viewBox="0 0 840 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SFCQBTVA.Net">
+            <defs>
+              <linearGradient id="lg-main" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="50%" stop-color="#22c55e"/>
+                <stop offset="100%" stop-color="#60a5fa"/>
+              </linearGradient>
+              <radialGradient id="rg-glow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#22c55e" flood-opacity=".28"/>
+              </filter>
+              <linearGradient id="lg-accent" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="100%" stop-color="#a78bfa"/>
+              </linearGradient>
+              <pattern id="pt-noise" width="4" height="4" patternUnits="userSpaceOnUse">
+                <rect width="4" height="4" fill="rgba(255,255,255,0.06)"/>
+                <circle cx="1" cy="1" r="0.6" fill="rgba(0,0,0,0.08)"/>
+                <circle cx="3" cy="2" r="0.5" fill="rgba(0,0,0,0.08)"/>
+              </pattern>
+              <mask id="mask-texture">
+                <rect width="100%" height="100%" fill="white"/>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pt-noise)"/>
+              </mask>
+            </defs>
+            <g transform="translate(12,18)">
+              <rect width="120" height="120" rx="28" fill="url(#rg-glow)" opacity=".6"/>
+              <rect x="6" y="6" width="108" height="108" rx="24" fill="#0f141c" stroke="url(#lg-main)" filter="url(#soft-glow)"/>
+              <path d="M24,66 C42,36 54,96 72,66 C90,36 102,96 120,66" fill="none" stroke="url(#lg-main)" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="60" cy="66" r="8" fill="#22c55e"/>
+              <circle cx="60" cy="66" r="24" fill="none" stroke="url(#lg-accent)" stroke-width="2" opacity=".55" />
+              <circle cx="60" cy="66" r="38" fill="none" stroke="url(#lg-accent)" stroke-width="1.5" opacity=".35" stroke-dasharray="6 6"/>
+            </g>
+            <g transform="translate(158,56)">
+              <rect x="0" y="84" width="560" height="4" fill="url(#lg-accent)" opacity=".45"/>
+              <g mask="url(#mask-texture)">
+                <text x="0" y="66" font-size="66" font-weight="800" fill="url(#lg-main)" letter-spacing="0.5">SFCQBTVA</text>
+              </g>
+              <text x="470" y="66" font-size="66" font-weight="800" fill="#e5f2ff">.Net</text>
+              <text x="2" y="106" font-size="18" font-weight="600" fill="#a7b0bf" letter-spacing=".6">Connectivity • NAT translation • ISP-grade simulation</text>
+            </g>
+          </svg>
+          <span class="brand-sr">SFCQBTVA.Net</span>
+          <span class="status-chip"><span class="dot"></span>Red Operativa</span>
+        </div>
+     
+      </div>
+    </div>
+
+    <section class="intro">
+      <div class="intro-decor"></div>
+      <div class="intro-head">
+        <h1 class="intro-title">SFCQBTVA.Net — Conectividad Inteligente</h1>
+        <p class="intro-subtitle">
+          Simulación interactiva de NAT para entender cómo múltiples dispositivos con IPs privadas (Clases A, B y C) 
+          comparten una IP pública de forma segura y eficiente.
+        </p>
+        <div class="intro-badges">
+          <span class="ibadge">🔒 Seguridad</span>
+          <span class="ibadge">⚡ Eficiencia</span>
+          <span class="ibadge">🌎 Escalabilidad</span>
+        </div>
+      </div>
+
+      <div class="intro-grid">
+        <div class="intro-card">
+          <div class="ic-icon">✅</div>
+          <div class="ic-body">
+            <h3>Con NAT</h3>
+            <p>Traducción dinámica: cada equipo “sale” por la misma IP pública con puertos únicos. El retorno del tráfico llega al dispositivo correcto.</p>
+          </div>
+        </div>
+
+        <div class="intro-card">
+          <div class="ic-icon">⛔</div>
+          <div class="ic-body">
+            <h3>Sin NAT</h3>
+            <p>Internet rechaza IPs privadas: no hay traducción ni alcance público. Útil para evidenciar la necesidad de NAT.</p>
+          </div>
+        </div>
+
+        <div class="intro-card">
+          <div class="ic-icon">📶</div>
+          <div class="ic-body">
+            <h3>Clases A, B y C</h3>
+            <p>Se generan IPs privadas de 10/8, 172.16/12 y 192.168/16 para escenarios reales y rangos de red conocidos.</p>
+          </div>
+        </div>
+
+        <div class="intro-card">
+          <div class="ic-icon">📊</div>
+          <div class="ic-body">
+            <h3>Monitoreo</h3>
+            <p>Topología animada, tabla de traducción, métricas de éxito y log de eventos en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-cta">
+        <button class="btn btn-ok" onclick="simularNAT()">✅ Iniciar Simulación con NAT</button>
+        <button class="btn btn-bad" onclick="sinNAT()">⛔ Probar SIN NAT</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Topología de Red</h3>
+            <span class="pill">Vista interactiva</span>
+          </div>
+          <div class="panel-body">
+            <div class="legend" id="legend">
+              <span class="tag">Dispositivos LAN</span>
+              <span class="tag">Router NAT</span>
+              <span class="tag">Internet</span>
+            </div>
+            <div id="topologia" class="topology-wrap"></div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <div class="panel-head">
+            <h3>Tabla de Traducción NAT</h3>
+            <span class="pill">Monitoreo</span>
+          </div>
+          <div class="panel-body">
+            <table id="tablaNAT">
+              <thead>
+                <tr>
+                  <th>Dispositivo</th>
+                  <th>IP Privada</th>
+                  <th>Solicitud (Privada → Pública)</th>
+                  <th>IP Pública Asignada</th>
+                  <th>Puerto NAT</th>
+                  <th>Respuesta (Pública → Privada)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Indicadores</h3>
+            <span class="pill">Tiempo real</span>
+          </div>
+          <div class="panel-body">
+            <div class="kpi-grid">
+              <div class="kpi ok">
+                <small>Exitosas</small>
+                <h2 id="k_exitosas">0</h2>
+              </div>
+              <div class="kpi bad">
+                <small>Fallidas</small>
+                <h2 id="k_fallidas">0</h2>
+              </div>
+              <div class="kpi neu">
+                <small>Dispositivos</small>
+                <h2 id="k_dispositivos">0</h2>
+              </div>
+              <div class="kpi neu">
+                <small>Tasa Éxito</small>
+                <h2 id="k_tasa">0%</h2>
+              </div>
+            </div>
+
+            <div class="meter">
+              <small style="color:var(--muted); font-weight:700">Conexiones Exitosas</small>
+              <div class="bar"><span id="bar_ok" class="bar-ok" style="width:0%"></span></div>
+            </div>
+            <div class="meter" style="margin-top:8px">
+              <small style="color:var(--muted); font-weight:700">Conexiones Fallidas</small>
+              <div class="bar"><span id="bar_fail" class="bar-bad" style="width:0%"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <div class="panel-head">
+            <h3>Log de Conexiones</h3>
+            <span class="pill">Últimos eventos</span>
+          </div>
+          <div class="panel-body">
+            <div id="log" class="log"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div id="red"></div>
+  </div>
+
+  <script>
+    const ICONS = {
+      router: "https://img.icons8.com/fluency/48/router.png",
+      internet: "https://img.icons8.com/fluency/48/internet.png",
+      laptop: "https://img.icons8.com/fluency/48/laptop.png",
+      desktop: "https://img.icons8.com/fluency/48/monitor.png",
+      mobile: "https://img.icons8.com/fluency/48/smartphone.png",
+      tablet: "https://img.icons8.com/fluency/48/ipad.png",
+      printer: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/OOjs_UI_icon_print.svg/48px-OOjs_UI_icon_print.svg.png",
+      tv: "https://img.icons8.com/fluency/48/tv.png",
+      server: "https://img.icons8.com/fluency/48/server.png",
+      generic: "https://img.icons8.com/fluency/48/device-manager.png"
+    };
+
+    const dispositivosPosibles = [
+      { nombre: "Laptop Oficina", solicitud: "Conectar a Teams" },
+      { nombre: "PC Escritorio", solicitud: "Abrir Google" },
+      { nombre: "Smartphone", solicitud: "Entrar a WhatsApp Web" },
+      { nombre: "Tablet", solicitud: "Revisar Gmail" },
+      { nombre: "Impresora WiFi", solicitud: "Enviar reporte al servidor" },
+      { nombre: "Smart TV", solicitud: "Ver Netflix" },
+      { nombre: "Servidor Local", solicitud: "Subir archivos al Drive" }
+    ];
+
+    function iconoPara(nombre){
+      const n = nombre.toLowerCase();
+      if(n.includes("laptop")) return ICONS.laptop;
+      if(n.includes("escritorio")||n.includes("pc")) return ICONS.desktop;
+      if(n.includes("smartphone")||n.includes("cel")||n.includes("móvil")||n.includes("movil")) return ICONS.mobile;
+      if(n.includes("tablet")) return ICONS.tablet;
+      if(n.includes("impresora")) return ICONS.printer;
+      if(n.includes("tv")) return ICONS.tv;
+      if(n.includes("servidor")) return ICONS.server;
+      return ICONS.generic;
+    }
+
+    function claseDeRed(ip){
+      if(!ip) return {clase:"-", tipo:"-"};
+      const [o1,o2] = ip.split(".").map(n=>parseInt(n,10));
+      let clase = "-";
+      if(o1>=1 && o1<=126) clase="A";
+      else if(o1>=128 && o1<=191) clase="B";
+      else if(o1>=192 && o1<=223) clase="C";
+      else if(o1>=224 && o1<=239) clase="D";
+      else if(o1>=240 && o1<=255) clase="E";
+
+      const tipo =
+        (o1===10) ? "Privada" :
+        (o1===172 && o2>=16 && o2<=31) ? "Privada" :
+        (o1===192 && o2===168) ? "Privada" : "Pública";
+
+      return {clase, tipo};
+    }
+    function badgeClase(ip, esPublica){
+      const info = claseDeRed(ip);
+      const cls = (info.tipo==="Privada" && !esPublica) ? "cls-private" : "cls-public";
+      return `<span class="badge-class ${cls}">Clase ${info.clase} • ${info.tipo}</span>`;
+    }
+
+    function r(mi, ma){ return Math.floor(Math.random()*(ma-mi+1))+mi }
+    function ipPrivadaPorClase(clase){
+      if(clase === 'A'){
+        return `10.${r(0,255)}.${r(0,255)}.${r(1,254)}`
+      }
+      if(clase === 'B'){
+        return `172.${r(16,31)}.${r(0,255)}.${r(1,254)}`
+      }
+      return `192.168.${r(0,255)}.${r(1,254)}`
+    }
+
+    function generarDispositivos() {
+      let cantidad = Math.floor(Math.random() * 4) + 3;
+      let seleccionados = dispositivosPosibles.sort(() => 0.5 - Math.random()).slice(0, cantidad);
+      const clases = ['A','B','C'];
+      return seleccionados.map((disp, i) => {
+        const clase = clases[i % clases.length];
+        disp.ipPrivada = ipPrivadaPorClase(clase);
+        return disp;
+      });
+    }
+
+    function setKPIs(exitosas, fallidas, total){
+      const tasa = total ? Math.round((exitosas/total)*100) : 0;
+      document.getElementById("k_exitosas").textContent = exitosas;
+      document.getElementById("k_fallidas").textContent = fallidas;
+      document.getElementById("k_dispositivos").textContent = total;
+      document.getElementById("k_tasa").textContent = tasa + "%";
+      document.getElementById("bar_ok").style.width = tasa + "%";
+      document.getElementById("bar_fail").style.width = (100 - tasa) + "%";
+    }
+
+    function renderTopologia(dispositivos, ipPublica, conNat){
+      const wrap = document.getElementById("topologia");
+      const h = Math.max(340, dispositivos.length * 72);
+      const w = 940;
+      const leftX = 120, routerX = 440, internetX = 760;
+      const topOffset = 56;
+
+      const routerY = h/2;
+      let nodes = "";
+      let links = "";
+
+      dispositivos.forEach((d, i) => {
+        const y = topOffset + i * ((h - 140) / Math.max(1, dispositivos.length - 1));
+        const icon = iconoPara(d.nombre);
+        const badge = badgeClase(d.ipPrivada, false).replace(/"/g, "'");
+        nodes += `
+          <image href="${icon}" x="${leftX - 56}" y="${y - 24}" width="28" height="28" class="pulse" />
+          <rect x="${leftX - 60}" y="${y - 22}" rx="10" ry="10" width="190" height="52" fill="rgba(109,92,255,0.18)" stroke="rgba(109,92,255,0.45)" />
+          <text x="${leftX - 20}" y="${y - 4}" fill="#e6eefe" font-size="12" font-weight="700">${d.nombre}</text>
+          <text x="${leftX - 20}" y="${y + 14}" fill="#a7b7d1" font-size="11">${d.ipPrivada}</text>
+          <foreignObject x="${leftX + 72}" y="${y - 14}" width="120" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px">${badge}</div>
+          </foreignObject>
+        `;
+        const c1x = (leftX + routerX) / 2;
+        const pathD = `
+          M ${leftX + 130},${y}
+          Q ${c1x},${y} ${routerX},${routerY}
+          T ${internetX - 28},${routerY}
+        `.trim().replace(/\s+/g,' ');
+        links += `<path d="${pathD}" class="link ${conNat ? 'link-ok link-flow' : 'link-bad link-flow'}"/>`;
+      });
+
+      const internetBadge = conNat && ipPublica ? badgeClase(ipPublica, true).replace(/"/g, "'") : "";
+
+      const svg = `
+        <svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}px" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradOk" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#86efac"/>
+            </linearGradient>
+            <linearGradient id="gradBad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#ef4444"/>
+            </linearGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#a78bfa" flood-opacity=".35" />
+            </filter>
+          </defs>
+
+          ${links}
+
+          ${nodes}
+
+          <image href="${ICONS.router}" x="${routerX - 16}" y="${routerY - 44}" width="32" height="32" class="pulse"/>
+          <rect x="${routerX - 72}" y="${routerY - 30}" rx="12" ry="12" width="144" height="60" fill="rgba(51,184,255,.18)" stroke="rgba(51,184,255,.45)" filter="url(#glow)"/>
+          <text x="${routerX - 34}" y="${routerY + 6}" fill="#d8ebff" font-size="12" font-weight="800">Router NAT</text>
+
+          <g transform="translate(${internetX - 32},${routerY - 32})">
+            <image href="${ICONS.internet}" width="64" height="64" class="spin"/>
+          </g>
+
+          ${conNat ? `
+            <foreignObject x="${internetX - 70}" y="${routerY + 46}" width="170" height="26">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;gap:6px;align-items:center">
+                <span style="font-size:11px;color:#a7ffcf;background:rgba(34,197,94,.15);padding:3px 8px;border-radius:999px;border:1px solid rgba(34,197,94,.35)">${ipPublica}</span>
+                <span style="font-size:11px">${internetBadge}</span>
+              </div>
+            </foreignObject>
+          ` : `
+            <foreignObject x="${internetX - 72}" y="${routerY + 46}" width="160" height="26">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;color:#ffd6d6;background:rgba(239,68,68,.15);padding:3px 8px;border-radius:999px;border:1px solid rgba(239,68,68,.35)">No disponible</div>
+            </foreignObject>
+          `}
+        </svg>
+      `;
+      wrap.innerHTML = svg;
+    }
+
+    function log(msg, ok=true){
+      const el = document.getElementById("log");
+      const time = new Date().toLocaleTimeString();
+      const line = `<div><span style="opacity:.6">[${time}]</span> <span class="${ok?'ok':'fail'}">${msg}</span></div>`;
+      el.innerHTML = line + el.innerHTML;
+    }
+
+    function simularNAT() {
+      const dispositivos = generarDispositivos();
+      const ipPublica = "181.50.23." + Math.floor(Math.random() * 200 + 1);
+      let puertoInicial = 40000;
+      const tbody = document.querySelector("#tablaNAT tbody");
+      const red = document.getElementById("red");
+
+      tbody.innerHTML = "";
+      red.innerHTML = "";
+
+      dispositivos.forEach((disp, i) => {
+        let puerto = puertoInicial + i;
+        let respuesta = "Respuesta recibida de Internet para " + disp.solicitud;
+
+        let fila = `
+          <tr>
+            <td>
+              <img src="${iconoPara(disp.nombre)}" width="16" height="16"
+                   style="vertical-align:middle; margin-right:6px"
+                   onerror="this.onerror=null; this.src='https://img.icons8.com/fluency/48/device-manager.png'">
+              ${disp.nombre}
+            </td>
+            <td>${disp.ipPrivada} ${badgeClase(disp.ipPrivada,false)}</td>
+            <td>${disp.solicitud}</td>
+            <td><span class="badge-ok">${ipPublica}</span> ${badgeClase(ipPublica,true)}</td>
+            <td>${puerto}</td>
+            <td>${respuesta} → reenviada a ${disp.ipPrivada}</td>
+          </tr>
+        `;
+        tbody.innerHTML += fila;
+
+        log(`${disp.nombre} → ${disp.solicitud} | NAT ${ipPublica}:${puerto} ✓`, true);
+      });
+
+      setKPIs(dispositivos.length, 0, dispositivos.length);
+      actualizarLegend(ipPublica, dispositivos);
+      renderTopologia(dispositivos, ipPublica, true);
+    }
+
+    function sinNAT() {
+      const dispositivos = generarDispositivos();
+      const tbody = document.querySelector("#tablaNAT tbody");
+      const red = document.getElementById("red");
+
+      tbody.innerHTML = "";
+      red.innerHTML = "";
+
+      dispositivos.forEach((disp) => {
+        let fila = `
+          <tr>
+            <td>
+              <img src="${iconoPara(disp.nombre)}" width="16" height="16"
+                   style="vertical-align:middle; margin-right:6px"
+                   onerror="this.onerror=null; this.src='https://img.icons8.com/fluency/48/device-manager.png'">
+              ${disp.nombre}
+            </td>
+            <td>${disp.ipPrivada} ${badgeClase(disp.ipPrivada,false)}</td>
+            <td>${disp.solicitud}</td>
+            <td>❌ No disponible</td>
+            <td>---</td>
+            <td><span class="badge-fail">Fallo</span>: Internet no reconoce IP privada</td>
+          </tr>
+        `;
+        tbody.innerHTML += fila;
+
+        log(`${disp.nombre} → ${disp.solicitud} | Sin NAT ✗`, false);
+      });
+
+      setKPIs(0, dispositivos.length, dispositivos.length);
+      actualizarLegend(null, dispositivos);
+      renderTopologia(dispositivos, null, false);
+    }
+
+    function actualizarLegend(ipPublica, dispositivos){
+      const legend = document.getElementById("legend");
+      const cont = {A:0,B:0,C:0};
+      (dispositivos||[]).forEach(d => {
+        const c = claseDeRed(d.ipPrivada).clase;
+        if(cont[c] !== undefined) cont[c] += 1;
+      });
+      const priv = `
+        <span class="tag">Clase A: 10.0.0.0/8 (${cont.A||0})</span>
+        <span class="tag">Clase B: 172.16.0.0/12 (${cont.B||0})</span>
+        <span class="tag">Clase C: 192.168.0.0/16 (${cont.C||0})</span>
+      `;
+      const pub = ipPublica ? `<span class="tag">Pública (${ipPublica})</span>` : `<span class="tag">Pública: no asignada</span>`;
+      legend.innerHTML = `
+        <span class="tag">Dispositivos LAN</span>
+        <span class="tag">Router NAT</span>
+        <span class="tag">Internet</span>
+        ${priv}
+        ${pub}
+      `;
+    }
+  </script>
+</body>
+</html>
